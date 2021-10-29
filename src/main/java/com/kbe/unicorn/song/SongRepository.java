@@ -1,6 +1,5 @@
-package com.kbe.unicorn.repository;
+package com.kbe.unicorn.song;
 
-import com.kbe.unicorn.entity.SongEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface SongRepository extends JpaRepository<SongEntity, Long> {

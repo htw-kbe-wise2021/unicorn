@@ -1,4 +1,4 @@
-package com.kbe.unicorn.entity;
+package com.kbe.unicorn.song;
 
 import lombok.Data;
 

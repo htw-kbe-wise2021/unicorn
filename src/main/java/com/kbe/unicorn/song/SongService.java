@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import javax.transaction.Transactional;
 import java.util.Collection;
 
 @Service
@@ -22,5 +23,13 @@ public class SongService {
 
     public SongEntity newSong(SongEntity song) {
         return repo.save(song);
+    }
+
+    @Transactional
+    public void deleteById(long id) {
+        if (!repo.existsById(id)) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        }
+        repo.deleteById(id);
     }
 }

@@ -40,6 +40,12 @@ public class SongController {
         return ResponseEntity.created(location).build();
     }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable long id) {
+        service.deleteById(id);
+        return ResponseEntity.noContent().build();
+    }
+
     private SongDto convertToDto(SongEntity song) {
         return modelMapper.map(song, SongDto.class);
     }

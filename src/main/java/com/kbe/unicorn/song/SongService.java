@@ -19,4 +19,8 @@ public class SongService {
     public Collection<SongEntity> findAll() {
         return repo.findAll();
     }
+
+    public SongEntity newSong(SongEntity song) {
+        return repo.save(song);
+    }
 }

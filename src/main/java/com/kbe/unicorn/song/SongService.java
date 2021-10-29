@@ -5,6 +5,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.Collection;
+
 @Service
 public class SongService {
     @Autowired
@@ -12,5 +14,9 @@ public class SongService {
 
     public SongEntity findById(long id) {
         return repo.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+    }
+
+    public Collection<SongEntity> findAll() {
+        return repo.findAll();
     }
 }

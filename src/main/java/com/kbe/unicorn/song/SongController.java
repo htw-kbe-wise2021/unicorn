@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Collection;
+
 @RestController()
 @RequestMapping("/songs")
 public class SongController {
@@ -15,5 +17,10 @@ public class SongController {
     @GetMapping("/{id}")
     public SongEntity one(@PathVariable long id) {
         return service.findById(id);
+    }
+
+    @GetMapping()
+    public Collection<SongEntity> all() {
+        return service.findAll();
     }
 }

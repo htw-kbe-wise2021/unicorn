@@ -1,12 +1,14 @@
 package com.kbe.unicorn.song;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import java.nio.file.Paths;
+import java.util.Arrays;
+
+import javax.annotation.PostConstruct;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.PostConstruct;
-import java.nio.file.Paths;
-import java.util.Arrays;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Component
 public class SongLoader {

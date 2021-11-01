@@ -11,6 +11,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       -
+        name: Check out the repo
+        uses: actions/checkout@v2
+      -
+        name: What
+        run: echo "BRANCH=${GITHUB_REF##*/}" >> $GITHUB_ENV
+      -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v1
       -
@@ -28,4 +34,6 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: zernico/unicorn:latest
+          tags: zernico/unicorn:${{ env.BRANCH }}
+          build-args: |
+            BRANCH=${{ env.BRANCH }}
